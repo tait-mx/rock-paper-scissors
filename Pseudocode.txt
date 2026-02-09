@@ -1,11 +1,12 @@
 Pseudocode
 
-1 Create funtion humanChoice() that takes an input value from promt and returns value
-2 Create function computerChoice() that randomly chooses "rock", "paper" or "scissors" 
-    returns result
-3 Create an alert in function computerChoice() showing computers choice
-4 Create comparison() function that calls humanChoice() and computerChoice() funcs,
-5 Compare them and return who wins.
+1 Create funtion humanChoiceGetting() that takes an input value from promt and stores it in
+var humanChoice
+2 Create function computerChoiceGetting() that randomly chooses "rock", "paper" or "scissors" 
+    and stores the result in var computerChoice
+3 Create an alert in function computerChoiceGetting() showing computers choice
+4 Create comparison() function that compares and computerChoice and humanChoice vars and 
+    returns who wins.
 6 Create alert in comparison() that shows round result and store winner value
     in var roundWinner
 7 Create round() fuction to keep track of who wins each round in var roundCount
