@@ -1,3 +1,22 @@
+const body = document.querySelector("body");
+const but1 = document.createElement("button");
+but1.style.width = "100px";
+but1.style.height = "50px";
+but1.style.margin = "10px";
+body.appendChild(but1);
+
+const but2 = document.createElement("button");
+but2.style.width = "100px";
+but2.style.height = "50px";
+but2.style.margin = "10px";
+body.appendChild(but2);
+
+const but3 = document.createElement("button");
+but3.style.width = "100px";
+but3.style.height = "50px";
+but3.style.margin = "10px";
+body.appendChild(but3);
+
 let humanChoice = 0;
 let computerChoice = 0;
 let round = 0;
@@ -6,7 +25,7 @@ let computerWins = 0;
 let humanCount = 0;
 let computerCount = 0;
 
-for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
+// for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
 
     // function that asks for human decision in a prompt and stores it in humanChoice var
     let humanChoiceGetting = function () {
@@ -71,7 +90,7 @@ for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
     humanChoiceGetting();
     computerChoiceGetting();
     compare();
-}
+// }
 
 // when round var counts to 5 the game is over and alerts the final result
 let gameover = function (humanFinal, computerFinal) {
