@@ -8,6 +8,7 @@ let humanCount = 0;
 let computerCount = 0;
 
 const body = document.querySelector("body");
+
 const but1 = document.createElement("button");
 but1.style.width = "100px";
 but1.style.height = "50px";
@@ -21,6 +22,7 @@ but2.style.width = "100px";
 but2.style.height = "50px";
 but2.style.margin = "10px";
 but2.textContent = "paper";
+but2.addEventListener("click", () => humanChoiceGetting("paper"));
 body.appendChild(but2);
 
 const but3 = document.createElement("button");
@@ -28,7 +30,10 @@ but3.style.width = "100px";
 but3.style.height = "50px";
 but3.style.margin = "10px";
 but3.textContent = "scissors";
+but3.addEventListener("click", () => humanChoiceGetting("scissors"));
 body.appendChild(but3);
+
+
 
 
 // for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
