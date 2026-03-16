@@ -3,18 +3,22 @@ const but1 = document.createElement("button");
 but1.style.width = "100px";
 but1.style.height = "50px";
 but1.style.margin = "10px";
+but1.textContent = "rock";
 body.appendChild(but1);
+but1.addEventListener("click", function() {console.log("rock")});
 
 const but2 = document.createElement("button");
 but2.style.width = "100px";
 but2.style.height = "50px";
 but2.style.margin = "10px";
+but2.textContent = "paper";
 body.appendChild(but2);
 
 const but3 = document.createElement("button");
 but3.style.width = "100px";
 but3.style.height = "50px";
 but3.style.margin = "10px";
+but3.textContent = "scissors";
 body.appendChild(but3);
 
 let humanChoice = 0;
