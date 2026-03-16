@@ -10,34 +10,23 @@ let computerCount = 0;
 const body = document.querySelector("body");
 
 const but1 = document.createElement("button");
-but1.style.width = "100px";
-but1.style.height = "50px";
-but1.style.margin = "10px";
-but1.textContent = "rock";
-but1.addEventListener("click", () => humanChoiceGetting("rock"));
-but1.addEventListener("click", () => computerChoiceGetting());
-but1.addEventListener("click", () => compare());
-body.appendChild(but1);
-
 const but2 = document.createElement("button");
-but2.style.width = "100px";
-but2.style.height = "50px";
-but2.style.margin = "10px";
-but2.textContent = "paper";
-but2.addEventListener("click", () => humanChoiceGetting("paper"));
-but2.addEventListener("click", () => computerChoiceGetting());
-but2.addEventListener("click", () => compare());
-body.appendChild(but2);
-
 const but3 = document.createElement("button");
-but3.style.width = "100px";
-but3.style.height = "50px";
-but3.style.margin = "10px";
-but3.textContent = "scissors";
-but3.addEventListener("click", () => humanChoiceGetting("scissors"));
-but3.addEventListener("click", () => computerChoiceGetting());
-but3.addEventListener("click", () => compare());
-body.appendChild(but3);
+
+const allButs = [but1, but2, but3];
+const allButsText = ["rock", "paper", "scissors"];
+
+for(let i = 0; i < 3; i++) {
+
+    allButs[i].style.width = "100px";
+    allButs[i].style.height = "50px";
+    allButs[i].style.margin = "10px";
+    allButs[i].textContent = allButsText[i];
+    allButs[i].addEventListener("click", () => humanChoiceGetting(allButsText[i]));
+    allButs[i].addEventListener("click", () => computerChoiceGetting());
+    allButs[i].addEventListener("click", () => compare());
+    body.appendChild(allButs[i]);
+};
 
 const div = document.createElement("div");
 const p1 = document.createElement("p");
