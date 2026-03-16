@@ -10,7 +10,7 @@ for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
 
     // function that asks for human decision in a prompt and stores it in humanChoice var
     let humanChoiceGetting = function () {
-        humanChoice = prompt("Choose rock, paper or scissors", "")
+        humanChoice = prompt("Choose rock, paper or scissors", "")  
     }
 
     // function that generates a random computer decision and stores it in computerChoice var
