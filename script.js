@@ -15,6 +15,8 @@ but1.style.height = "50px";
 but1.style.margin = "10px";
 but1.textContent = "rock";
 but1.addEventListener("click", () => humanChoiceGetting("rock"));
+but1.addEventListener("click", () => computerChoiceGetting());
+but1.addEventListener("click", () => compare());
 body.appendChild(but1);
 
 const but2 = document.createElement("button");
@@ -23,6 +25,8 @@ but2.style.height = "50px";
 but2.style.margin = "10px";
 but2.textContent = "paper";
 but2.addEventListener("click", () => humanChoiceGetting("paper"));
+but2.addEventListener("click", () => computerChoiceGetting());
+but2.addEventListener("click", () => compare());
 body.appendChild(but2);
 
 const but3 = document.createElement("button");
@@ -31,10 +35,18 @@ but3.style.height = "50px";
 but3.style.margin = "10px";
 but3.textContent = "scissors";
 but3.addEventListener("click", () => humanChoiceGetting("scissors"));
+but3.addEventListener("click", () => computerChoiceGetting());
+but3.addEventListener("click", () => compare());
 body.appendChild(but3);
 
 const div = document.createElement("div");
-div.textContent = "Choice";
+const p1 = document.createElement("p");
+const p2 = document.createElement("p");
+const p3 = document.createElement("p");
+div.appendChild(p1);
+div.appendChild(p2);
+div.appendChild(p3);
+// div.textContent = "Choice";
 body.appendChild(div);
 
 
@@ -44,7 +56,7 @@ body.appendChild(div);
 // function that asks for human decision in a prompt and stores it in humanChoice var
 function humanChoiceGetting(text) {
     humanChoice = text;
-    div.textContent = humanChoice;
+    p1.textContent = `human's choice = ${humanChoice}`;
 }
 
 // function that generates a random computer decision and stores it in computerChoice var
@@ -59,6 +71,7 @@ let computerChoiceGetting = function () {
         case 3: computerChoice = "scissors"
             break;
     };
+    p2.textContent = `computer's choice = ${computerChoice}`;
 };
 
 // function that compares humanChoice with computerChoice and store result in winner var
@@ -89,7 +102,8 @@ let compare = function () {
     roundCounter(result);
 
     // Creates alert to let the user know of the status of the game
-    alert("Round " + round + ", human = " + humanChoice + ", " + "computer = " + computerChoice + `\n${winner}`);
+    // alert("Round " + round + ", human = " + humanChoice + ", " + "computer = " + computerChoice + `\n${winner}`);
+    p3.textContent = winner;
 }
 
 //roundCounter() function that keeps track of who wins and round count
