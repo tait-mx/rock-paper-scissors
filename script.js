@@ -1,4 +1,6 @@
 
+
+
 let humanChoice = 0;
 let computerChoice = 0;
 let round = 0;
@@ -32,9 +34,12 @@ const div = document.createElement("div");
 const p1 = document.createElement("p");
 const p2 = document.createElement("p");
 const p3 = document.createElement("p");
+const pScore = document.createElement("p");
+pScore.textContent = `Score: Human ${humanCount} / Computer ${computerCount}`;
 div.appendChild(p1);
 div.appendChild(p2);
 div.appendChild(p3);
+div.appendChild(pScore);
 // div.textContent = "Choice";
 body.appendChild(div);
 
@@ -97,7 +102,9 @@ let compare = function () {
 
 //roundCounter() function that keeps track of who wins and round count
 let roundCounter = function (wins) {
-    if (wins == 0) { ++humanCount } // human wins counter
+    if (wins == 0) { ++humanCount;
+
+     } // human wins counter
     else if (wins == 1) { ++computerCount } // computer wins counter
 
     ++round; // round counter
