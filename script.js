@@ -109,6 +109,8 @@ let roundCounter = function (wins) {
 
     ++round; // round counter
     // console.log("round = " + round + ", human = " + humanCount + ", coumputer = " + computerCount);
+
+    pScore.textContent = `Round ${round} : Human ${humanCount} / Computer ${computerCount}`;
 }
 
 // calls functions
