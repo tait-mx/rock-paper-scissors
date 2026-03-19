@@ -8,6 +8,7 @@ let humanWins = 0;
 let computerWins = 0;
 let humanCount = 0;
 let computerCount = 0;
+let result = 0;
 
 const body = document.querySelector("body");
 
@@ -18,7 +19,7 @@ const but3 = document.createElement("button");
 const allButs = [but1, but2, but3];
 const allButsText = ["rock", "paper", "scissors"];
 
-for(let i = 0; i < 3; i++) {
+for (let i = 0; i < 3; i++) {
 
     allButs[i].style.width = "100px";
     allButs[i].style.height = "50px";
@@ -35,11 +36,13 @@ const p1 = document.createElement("p");
 const p2 = document.createElement("p");
 const p3 = document.createElement("p");
 const pScore = document.createElement("p");
+const pGameover = document.createElement("p");
 pScore.textContent = `Score: Human ${humanCount} / Computer ${computerCount}`;
 div.appendChild(p1);
 div.appendChild(p2);
 div.appendChild(p3);
 div.appendChild(pScore);
+div.appendChild(pGameover);
 // div.textContent = "Choice";
 body.appendChild(div);
 
@@ -72,7 +75,7 @@ let computerChoiceGetting = function () {
 let compare = function () {
     let human = humanChoice.toLowerCase();
     let computer = computerChoice;
-    let result = 0;
+    result = 0;
     let winner = 0;
 
     // if result = 0 human wins, result = 1 computer wins, result = 2 it's a tie
@@ -102,15 +105,26 @@ let compare = function () {
 
 //roundCounter() function that keeps track of who wins and round count
 let roundCounter = function (wins) {
-    if (wins == 0) { ++humanCount;
+    if (wins == 0) {
+        ++humanCount;
 
-     } // human wins counter
+    } // human wins counter
     else if (wins == 1) { ++computerCount } // computer wins counter
 
     ++round; // round counter
     // console.log("round = " + round + ", human = " + humanCount + ", coumputer = " + computerCount);
 
     pScore.textContent = `Round ${round} : Human ${humanCount} / Computer ${computerCount}`;
+    if (round == 5) {
+        gameover(humanCount, computerCount); console.log("gameover");
+        humanChoice = 0;
+        computerChoice = 0;
+        round = 0;
+        humanWins = 0;
+        computerWins = 0;
+        humanCount = 0;
+        computerCount = 0;
+    };
 }
 
 // calls functions
@@ -120,14 +134,16 @@ compare();
 // }
 
 // when round var counts to 5 the game is over and alerts the final result
-let gameover = function (humanFinal, computerFinal) {
+function gameover(humanFinal, computerFinal) {
     if (humanFinal == computerFinal) { result = "It's a tie!" }
     else if (humanFinal > computerFinal) { result = "Human wins!" }
     else if (humanFinal < computerFinal) { result = "Computer wins!" }
 
-    alert("GAME OVER\n" + result)
+    // alert("GAME OVER\n" + result)
+    pGameover.textContent = `Gameover ${result}`
+
 }
 
-gameover();  // gameover function call
+// gameover function call
 
 
