@@ -28,6 +28,7 @@ for (let i = 0; i < 3; i++) {
     allButs[i].addEventListener("click", () => humanChoiceGetting(allButsText[i]));
     allButs[i].addEventListener("click", () => computerChoiceGetting());
     allButs[i].addEventListener("click", () => compare());
+    allButs[i].addEventListener("click", () => {round == 1 ? pGameover.textContent = "" : ""; console.log(round)});
     body.appendChild(allButs[i]);
 };
 
@@ -141,6 +142,8 @@ function gameover(humanFinal, computerFinal) {
 
     // alert("GAME OVER\n" + result)
     pGameover.textContent = `Gameover ${result}`
+    pGameover.style.backgroundColor = "red";
+    pGameover.style.textAlign = "center";
 
 }
 
