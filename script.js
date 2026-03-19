@@ -1,4 +1,4 @@
-
+// Rock, Paper, Scissors UI Game
 
 
 let humanChoice = 0;
@@ -28,28 +28,26 @@ for (let i = 0; i < 3; i++) {
     allButs[i].addEventListener("click", () => humanChoiceGetting(allButsText[i]));
     allButs[i].addEventListener("click", () => computerChoiceGetting());
     allButs[i].addEventListener("click", () => compare());
-    allButs[i].addEventListener("click", () => {round == 1 ? pGameover.textContent = "" : ""; console.log(round)});
+    allButs[i].addEventListener("click", () => round == 1 ? pGameover.textContent = "" : "");
     body.appendChild(allButs[i]);
 };
 
 const div = document.createElement("div");
+const pScore = document.createElement("p");
 const p1 = document.createElement("p");
 const p2 = document.createElement("p");
 const p3 = document.createElement("p");
-const pScore = document.createElement("p");
 const pGameover = document.createElement("p");
 pScore.textContent = `Score: Human ${humanCount} / Computer ${computerCount}`;
+div.appendChild(pScore);
+div.appendChild(p3);
 div.appendChild(p1);
 div.appendChild(p2);
-div.appendChild(p3);
-div.appendChild(pScore);
 div.appendChild(pGameover);
-// div.textContent = "Choice";
 body.appendChild(div);
 
 
 
-// for (let i = 1; i <= 5; i++) {  // loop to make 5 rounds
 
 // function that asks for human decision in a prompt and stores it in humanChoice var
 function humanChoiceGetting(text) {
@@ -59,7 +57,7 @@ function humanChoiceGetting(text) {
 
 // function that generates a random computer decision and stores it in computerChoice var
 let computerChoiceGetting = function () {
-    let choice = Math.ceil(Math.random() * 3); // create a random number between 1 and 5
+    let choice = Math.ceil(Math.random() * 3); // create a random number between 1 and 3
 
     switch (choice) { // Transforms computerChoice var in to user readable
         case 1: computerChoice = "rock"
@@ -74,7 +72,7 @@ let computerChoiceGetting = function () {
 
 // function that compares humanChoice with computerChoice and store result in winner var
 let compare = function () {
-    let human = humanChoice.toLowerCase();
+    let human = humanChoice;
     let computer = computerChoice;
     result = 0;
     let winner = 0;
@@ -99,8 +97,7 @@ let compare = function () {
     // calls roundCounter() function that keeps track of who wins and round count
     roundCounter(result);
 
-    // Creates alert to let the user know of the status of the game
-    // alert("Round " + round + ", human = " + humanChoice + ", " + "computer = " + computerChoice + `\n${winner}`);
+    // Displays game status
     p3.textContent = winner;
 }
 
@@ -113,11 +110,10 @@ let roundCounter = function (wins) {
     else if (wins == 1) { ++computerCount } // computer wins counter
 
     ++round; // round counter
-    // console.log("round = " + round + ", human = " + humanCount + ", coumputer = " + computerCount);
 
     pScore.textContent = `Round ${round} : Human ${humanCount} / Computer ${computerCount}`;
     if (round == 5) {
-        gameover(humanCount, computerCount); console.log("gameover");
+        gameover(humanCount, computerCount);
         humanChoice = 0;
         computerChoice = 0;
         round = 0;
@@ -129,24 +125,21 @@ let roundCounter = function (wins) {
 }
 
 // calls functions
-humanChoiceGetting();
-computerChoiceGetting();
-compare();
-// }
+// humanChoiceGetting();
+//computerChoiceGetting();
+// compare();
 
-// when round var counts to 5 the game is over and alerts the final result
+// when round var counts to 5 the game is over and displays the final result
 function gameover(humanFinal, computerFinal) {
     if (humanFinal == computerFinal) { result = "It's a tie!" }
     else if (humanFinal > computerFinal) { result = "Human wins!" }
     else if (humanFinal < computerFinal) { result = "Computer wins!" }
 
-    // alert("GAME OVER\n" + result)
     pGameover.textContent = `Gameover ${result}`
     pGameover.style.backgroundColor = "red";
     pGameover.style.textAlign = "center";
 
 }
 
-// gameover function call
 
 
